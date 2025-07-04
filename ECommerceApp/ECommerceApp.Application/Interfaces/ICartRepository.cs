@@ -13,5 +13,8 @@ namespace ECommerceApp.Application.Interfaces
         Task AddItemAsync(Guid userId, Guid productId, int quantity);
         Task RemoveItemAsync(Guid userId, Guid productId);
         Task ClearCartAsync(Guid userId);
+
+        Task UpdateQuantityAsync(Guid userId, Guid productId, int newQuantity);
+
     }
 }

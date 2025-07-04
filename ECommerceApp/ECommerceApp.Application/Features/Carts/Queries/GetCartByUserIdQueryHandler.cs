@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Queries
 {
-   public  class GetCartByUserIdQueryHandler:IRequestHandler<GetCartByUserIdQuery,CartDto>
+    public class GetCartByUserIdQueryHandler : IRequestHandler<GetCartByUserIdQuery, CartDto>
     {
         private readonly ICartRepository _cartRepository;
 
@@ -29,5 +29,6 @@ namespace ECommerceApp.Application.Features.Carts.Queries
 
             return dto;
 
+        }
     }
 }

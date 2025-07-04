@@ -12,5 +12,9 @@ namespace ECommerceApp.Application.Interfaces
         Task<User?> GetByEmailAsync(string email);
         Task AddAsync(User user);
         Task<User?> GetByIdAsync(Guid id);
+
+        Task<bool> UpdateUserAsync(Guid userId, string fullName, string email);
+
+        Task<bool> DeleteUserAsync(Guid userId);
     }
 }
