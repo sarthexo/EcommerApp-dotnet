@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Products.Commands
 {
-    public class UpdateProductCommandHandler:IRequestHandler<UpdateProductCommand>
+    public class UpdateProductCommandHandler:IRequestHandler<UpdateProductCommand, Unit>
     {
         private readonly IProductRepository _productRepository;
 

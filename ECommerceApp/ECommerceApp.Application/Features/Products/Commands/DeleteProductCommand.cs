@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Products.Commands
 {
-   public record DeleteProductCommand(Guid Id):IRequest;
+   public record DeleteProductCommand(Guid Id):IRequest<Unit>;
     
 }

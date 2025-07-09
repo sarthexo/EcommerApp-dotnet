@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-    public record RemoveCartItemCommand(Guid UserId,Guid ProductId):IRequest;
+    public record RemoveCartItemCommand(Guid UserId,Guid ProductId):IRequest<Unit>;
     
     
 }

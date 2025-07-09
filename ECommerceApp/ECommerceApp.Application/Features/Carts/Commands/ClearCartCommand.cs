@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-    public record ClearCartCommand(Guid UserId):IRequest;
+    public record ClearCartCommand(Guid UserId):IRequest<Unit>;
     
 }

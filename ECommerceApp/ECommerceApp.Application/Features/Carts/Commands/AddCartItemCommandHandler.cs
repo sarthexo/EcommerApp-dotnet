@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-    public class AddCartItemCommandHandler : IRequestHandler<AddCartItemCommand>
+    public class AddCartItemCommandHandler : IRequestHandler<AddCartItemCommand, Unit>
     {
         private readonly ICartRepository _cartRepository;
 

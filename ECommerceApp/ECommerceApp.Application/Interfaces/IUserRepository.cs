@@ -1,4 +1,5 @@
 ﻿using ECommerceApp.Domain.Entities;
+using ECommerceApp.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,11 @@ namespace ECommerceApp.Application.Interfaces
         Task<bool> UpdateUserAsync(Guid userId, string fullName, string email);
 
         Task<bool> DeleteUserAsync(Guid userId);
+        Task<int> GetAdminCountAsync();
+
+        Task<List<User>> GetUsersByRoleAsync(Role role);
+
+        Task<User?> GetByUsernameAsync(string username);
+
     }
 }

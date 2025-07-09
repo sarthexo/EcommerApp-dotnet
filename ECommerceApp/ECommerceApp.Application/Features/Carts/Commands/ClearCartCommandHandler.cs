@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-   public class ClearCartCommandHandler:IRequestHandler<ClearCartCommand>
+   public class ClearCartCommandHandler:IRequestHandler<ClearCartCommand, Unit>
     {
         private readonly ICartRepository _cartRepository;
 

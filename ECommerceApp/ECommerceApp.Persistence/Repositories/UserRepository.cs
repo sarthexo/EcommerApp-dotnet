@@ -1,5 +1,6 @@
 ﻿using ECommerceApp.Application.Interfaces;
 using ECommerceApp.Domain.Entities;
+using ECommerceApp.Domain.Enums;
 using ECommerceApp.Infrastructure.Exceptions;
 using ECommerceApp.Persistence.DbtContext;
 using Microsoft.EntityFrameworkCore;
@@ -39,12 +40,25 @@ namespace ECommerceApp.Persistence.Repositories
 
         public async Task<User?> GetByEmailAsync(string email)
         {
+           // var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public async Task<User?> GetByIdAsync(Guid id)
         {
             return await _context.Users.FindAsync(id);
+        }
+
+        public async Task<List<User>> GetUsersByRoleAsync(Role role)
+        {
+            return await _context.Users
+                .Where(u => u.Role == role)
+                .ToListAsync();
+        }
+
+        public async Task<int> GetAdminCountAsync()
+        {
+            return await _context.Users.CountAsync(u => u.Role == Domain.Enums.Role.Admin);
         }
 
         public async Task<bool> UpdateUserAsync(Guid userId, string fullName, string email)
@@ -60,6 +74,11 @@ namespace ECommerceApp.Persistence.Repositories
             await _context.SaveChangesAsync();
             return true;
             
+        }
+
+        public async Task<User?> GetByUsernameAsync(string username)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
     }
 }

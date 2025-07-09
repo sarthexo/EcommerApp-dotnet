@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-    public class UpdateCartItemQuantityCommandHandler:IRequestHandler<UpdateCartItemQuantityCommand>
+    public class UpdateCartItemQuantityCommandHandler:IRequestHandler<UpdateCartItemQuantityCommand, Unit>
     {
         private readonly ICartRepository _cartRepository;
 

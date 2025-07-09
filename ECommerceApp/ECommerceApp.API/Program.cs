@@ -1,5 +1,6 @@
 
 using AutoMapper;
+using MediatR;
 using ECommerceApp.Application.Common.MappingProfile;
 using ECommerceApp.Infrastructure;
 using ECommerceApp.Infrastructure.Middleware;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using ECommerceApp.Application;
 
 
 namespace ECommerceApp.API
@@ -24,6 +26,7 @@ namespace ECommerceApp.API
             //adding services
             builder.Services.AddPersistenceServices(builder.Configuration);
             builder.Services.AddInfrastructureServices(builder.Configuration);
+            builder.Services.AddApplicationServices();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,7 +47,7 @@ namespace ECommerceApp.API
                 c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
                 {
                     Name = "Authorization",
-                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
                     Scheme = "bearer",
                     BearerFormat = "JWT",
                     In = Microsoft.OpenApi.Models.ParameterLocation.Header,

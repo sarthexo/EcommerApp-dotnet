@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-    public class RemoveCartItemCommandHandler : IRequestHandler<RemoveCartItemCommand>
+    public class RemoveCartItemCommandHandler : IRequestHandler<RemoveCartItemCommand, Unit>
     {
         private readonly ICartRepository _cartRepository;
 

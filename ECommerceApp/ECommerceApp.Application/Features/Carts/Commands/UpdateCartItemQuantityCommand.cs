@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Carts.Commands
 {
-   public  record UpdateCartItemQuantityCommand(Guid UserId, Guid ProductId , int NewQuantity):IRequest;
+   public  record UpdateCartItemQuantityCommand(Guid UserId, Guid ProductId , int NewQuantity):IRequest<Unit>;
     
 }
