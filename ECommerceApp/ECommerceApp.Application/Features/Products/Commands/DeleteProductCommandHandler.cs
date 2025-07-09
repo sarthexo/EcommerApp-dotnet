@@ -19,7 +19,7 @@ namespace ECommerceApp.Application.Features.Products.Commands
         public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetByIdAsync(request.Id)
-                                ?? throw new KeyNotFoundException("Product not found ");
+                                ?? throw new KeyNotFoundException("Product not found !! ");
 
             await _productRepository.DeleteAsync(product);
             return Unit.Value;
