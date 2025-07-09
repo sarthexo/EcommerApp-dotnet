@@ -23,6 +23,17 @@ namespace ECommerceApp.Application.Features.Users.Commands
         }
         public async Task<Guid> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
+            if (!Enum.TryParse<Role>(request.Role,true, out var parsedRole))
+            {
+                throw new ArgumentException("Invalid role specified");
+            }
+
+            // Optional: restrict creation of Admin via public registration
+
+            if (parsedRole ==Role.Admin)
+            {
+                throw new UnauthorizedAccessException("Cannot assign admin role during registration");
+            }
             var user = new User
             {
                 Id = Guid.NewGuid(),

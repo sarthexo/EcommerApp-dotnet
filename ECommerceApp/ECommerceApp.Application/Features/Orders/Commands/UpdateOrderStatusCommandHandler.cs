@@ -25,7 +25,7 @@ namespace ECommerceApp.Application.Features.Orders.Commands
 
 
 
-            if (!Enum.TryParse<OrderStatus>(request.NewStatus, true, out var status)
+            if (!Enum.TryParse<OrderStatus>(request.NewStatus, true, out var status))
                 return false;
 
             order.status = status;

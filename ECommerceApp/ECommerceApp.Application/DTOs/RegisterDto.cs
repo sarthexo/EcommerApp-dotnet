@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.DTOs
 {
-   public  record CartDto(Guid UserId, List<CartItemDto> Items);
+   public  record RegisterDto(string FullName, string Email, string Password, string Role);
     
 }

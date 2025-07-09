@@ -15,5 +15,7 @@ namespace ECommerceApp.Domain.Entities
         public decimal TotalAmount { get; set; }
         public OrderStatus status { get; set; }
 
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
     }
 }

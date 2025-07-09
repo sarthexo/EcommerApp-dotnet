@@ -16,7 +16,9 @@ namespace ECommerceApp.Application.Features.Users.Commands
        string Email,
 
        [Required]
-       string Password
+       string Password,
+
+       string Role
 
        ) : IRequest<Guid>;
     
