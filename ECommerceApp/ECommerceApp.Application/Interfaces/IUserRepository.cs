@@ -19,6 +19,8 @@ namespace ECommerceApp.Application.Interfaces
         Task<bool> DeleteUserAsync(Guid userId);
         Task<int> GetAdminCountAsync();
 
+       
+
         Task<List<User>> GetUsersByRoleAsync(Role role);
 
         Task<User?> GetByUsernameAsync(string username);

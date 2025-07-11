@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ECommerceApp.Infrastructure.Seeding;
 
 namespace ECommerceApp.Infrastructure
 {
@@ -19,6 +20,7 @@ namespace ECommerceApp.Infrastructure
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<ISuperAdminSeeder, SuperAdminSeeder>();
 
             return services;
         }

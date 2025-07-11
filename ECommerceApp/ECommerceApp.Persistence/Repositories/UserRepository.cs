@@ -80,5 +80,7 @@ namespace ECommerceApp.Persistence.Repositories
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
+
+       
     }
 }

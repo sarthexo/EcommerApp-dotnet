@@ -11,13 +11,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using ECommerceApp.Application;
+using ECommerceApp.Infrastructure.Seeding;
+using System.Threading.Tasks;
 
 
 namespace ECommerceApp.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -97,7 +99,16 @@ namespace ECommerceApp.API
                     };
                 });
 
+            //adding HttpContextAccessor for accessing user Claims in handlers
+            builder.Services.AddHttpContextAccessor();
+
             var app = builder.Build();
+
+            using(var scope = app.Services.CreateScope())
+            {
+                var seeder = scope.ServiceProvider.GetRequiredService<ISuperAdminSeeder>();
+                await seeder.SeedAsync();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
