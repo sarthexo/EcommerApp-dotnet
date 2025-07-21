@@ -49,6 +49,11 @@ namespace ECommerceApp.Persistence.DbtContext
                     a.Property(ci => ci.Price).HasColumnType("decimal(18,2)");
                 });
 
+            //product-Category relationship
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products).HasForeignKey(p => p.CategoryId).OnDelete(DeleteBehavior.Cascade);
+
             base.OnModelCreating(modelBuilder);
         }
 

@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.Application.Features.Products.Queries
 {
-    public class GetAllProductsCommandHandler : IRequestHandler<GetAllProductsQuery, List<ProductDto>>
+    public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, List<ProductDto>>
     {
         private readonly IProductRepository _productRepository;
-        public GetAllProductsCommandHandler(IProductRepository productRepository)
+        public GetAllProductsQueryHandler(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }

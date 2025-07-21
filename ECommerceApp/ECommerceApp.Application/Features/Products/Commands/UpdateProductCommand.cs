@@ -15,6 +15,6 @@ namespace ECommerceApp.Application.Features.Products.Commands
        string Description,
        decimal Price,
        int Stock,
-       Guid CategoryId
+       Guid  CategoryId
        ):IRequest<Unit>;
 }

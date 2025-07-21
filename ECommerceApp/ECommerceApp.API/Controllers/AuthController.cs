@@ -37,7 +37,7 @@ namespace ECommerceApp.API.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("users-by-role/{roleName}")]
         public async Task<IActionResult> GetUsersByRole(string roleName)
         {
